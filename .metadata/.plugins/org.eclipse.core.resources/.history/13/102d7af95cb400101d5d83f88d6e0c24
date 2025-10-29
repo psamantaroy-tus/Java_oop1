@@ -1,0 +1,13 @@
+package com.tus.shoppingcart25;
+
+public final class Customer extends User {
+
+	private Customer(String name) {
+		super(name);
+		// TODO Auto-generated constructor stub
+	}
+	
+public void viewCart() {
+	
+}
+}

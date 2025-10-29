@@ -1,0 +1,52 @@
+package com.tus.shoppingcart25;
+
+import java.util.ArrayList;
+
+public class Cart {
+
+	// Array list of products
+	private ArrayList<Product> products;
+
+	// contructor
+	public Cart() {
+		products = new ArrayList<Product>();
+	}
+
+	// methods
+	public void addProduct(Product product, int quantity, Category category) {
+		for (Product pr : products) {
+			// if product present in cart then add quantity at the top of it
+			if (pr.getId() == product.getId()) {
+				pr.setQuantity(pr.getQuantity() + quantity);
+			}
+			// add new product and quantity
+			else {
+				products.add(product);
+				product.getCategory();
+				product.setCategory(category);
+				product.setQuantity(quantity);
+				System.out.println("Product added to your cart : " + product.displayProduct());
+			}
+		}
+	}
+
+	public void removeProduct(int id, int quantity) {
+		// remove quantity
+		for (Product pr : products) {
+			if (pr.getId() == id) {
+				if (pr.getQuantity() > quantity) {
+					pr.setQuantity(pr.getQuantity() - quantity);
+					System.out.println( "Produc quantity has removed :" + pr.getProductName()+ "Remaining quantity :" + pr.getQuantity());
+				}
+				//remove product
+				else {
+					products.remove(id);
+					System.out.println(pr.getProductName() + " : has removed from the cart");
+				}
+
+			}
+		}
+
+	}
+
+}
